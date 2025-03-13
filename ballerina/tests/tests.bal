@@ -64,6 +64,16 @@ function testPromptAsCodeFunctionWithStructuredExpectedTypeWithOpenAIClient() re
     test:assertEquals(review, review2);
 }
 
+type Country record {|
+    string countryName;
+|};
+
+@test:Config
+function testPromptAsCodeFunctionForComplexTestWithDefaultAzureOpenAIClient() returns error? {
+    Country[] rating = check callLlm(`Tell me the names of top 10 countries to visit in 2025.`);
+    test:assertEquals(rating.length(), 10);
+}
+
 type Blog record {
     string title;
     string content;
