@@ -54,7 +54,7 @@ public class Native {
         Object jsonSchema = generateJsonSchemaForType(targetType.getDescribingType());
         return env.getRuntime().callFunction(
                 new Module("ballerinax", "np", "0"), "callLlmGeneric", null, prompt, context, targetType,
-                isSchemaGeneratedAtCompileTime ? jsonSchema : null);
+                generateJsonSchemaForType(targetType.getDescribingType()));
     }
 
     public static Object generateJsonSchemaForType(Type td) {
@@ -119,7 +119,6 @@ public class Native {
                 return entry.getValue();
             }
         }
-        isSchemaGeneratedAtCompileTime = false;
         return null;
     }
 
