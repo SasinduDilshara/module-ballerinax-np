@@ -338,7 +338,7 @@ modules = [
 [[package]]
 org = "ballerinax"
 name = "np"
-version = "0.8.2"
+version = "0.8.7"
 dependencies = [
 	{org = "ballerina", name = "http"},
 	{org = "ballerina", name = "jballerina.java"},
